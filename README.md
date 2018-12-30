@@ -2,13 +2,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-### `First`
+### First
 
 Before you start using Yarn, you'll first need to install it on your system:
 
 [https://yarnpkg.com/en/docs/install#mac-stable](https://yarnpkg.com/en/docs/install#mac-stable)
 
-### `After`
+### After
 
 In the project directory, you can run:
 
