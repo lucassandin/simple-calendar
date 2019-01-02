@@ -6,7 +6,7 @@ export default function reducers(state = INITIAL_STATE, action) {
       return {
         ...state,
         backgroundColor: action.payload.backgroundColor,
-        color: state.color ? false : true
+        color: action.payload.color
       };
     default:
       return state;

@@ -14,7 +14,7 @@ const Color = props => {
             defaultChecked
             type="radio"
             name="color"
-            onClick={() => props.alterTheme("#c5c5c5")}
+            onClick={() => props.alterTheme("#c5c5c5", true)}
           />{" "}
           Light
         </label>
@@ -22,7 +22,7 @@ const Color = props => {
           <input
             type="radio"
             name="color"
-            onClick={() => props.alterTheme("#505050")}
+            onClick={() => props.alterTheme("#505050", false)}
           />{" "}
           Black
         </label>

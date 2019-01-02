@@ -1,4 +1,4 @@
-export const alterTheme = bColor => ({
+export const alterTheme = (bColor, color) => ({
   type: "ALTER_THEME",
-  payload: { backgroundColor: bColor }
+  payload: { backgroundColor: bColor, color: color }
 });

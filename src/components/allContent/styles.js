@@ -5,7 +5,7 @@ export const StyledAllContent = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 5px 1%;
-  border-radius: 5px;
+  margin: 0 1%;
+  /* border-radius: 5px; */
   padding: 10px;
 `;
