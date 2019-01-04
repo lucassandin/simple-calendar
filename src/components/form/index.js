@@ -7,8 +7,8 @@ class Form extends Component {
   state = {
     data: { name: "", email: "", phone: "" },
     contacts: [
-      { id: 1, name: "lucas", email: "c@c.com", phone: "32987052840" },
-      { id: 2, name: "sandin", email: "c@c.com", phone: "32987052840" }
+      { id: 1, name: "Teste", email: "c@c.com", phone: "32988993322" },
+      { id: 2, name: "Teste 2", email: "c@c.com", phone: "32988002233" }
     ],
     length: 0
   };
