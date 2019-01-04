@@ -3,16 +3,23 @@ import store from "../../store/store";
 
 export const StyledContentList = styled.div`
   color: ${() => (store.getState().app.color ? "#353535" : "#353535")};
-  width: 200px;
+  width: 100%;
   padding: 20px;
   box-shadow: 0 0 5px #a1a1a1;
   margin: 0 0 0 20px;
   overflow-y: scroll;
-  height: 200px;
+  height: 300px;
 
   h3 {
     padding: 0;
     margin: 0;
+  }
+
+  input {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
   }
 
   ul {
@@ -27,6 +34,10 @@ export const StyledContentList = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
+
+    &:active {
+      background: #9a96ff;
+    }
   }
 
   span {

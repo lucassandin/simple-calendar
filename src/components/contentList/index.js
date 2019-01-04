@@ -2,18 +2,44 @@ import React, { Component } from "react";
 import { StyledContentList } from "./styles";
 
 class ContentList extends Component {
+  state = {
+    search: ""
+  };
+
+  handleOnChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
   handleOnRemove = id => {
     this.props.handleOnRemove(id);
   };
 
   render() {
+    const filteredContacts = this.props.contacts.filter(
+      e =>
+        !e.name.toLowerCase().search(this.state.search.toLowerCase()) ||
+        !e.email.toLowerCase().search(this.state.search.toLowerCase()) ||
+        !e.phone.search(this.state.search)
+    );
     return (
       <StyledContentList>
-        <h3>Contatos</h3>
-        {this.props.contacts &&
-          this.props.contacts.map(contact => {
+        <div>
+          <h3>Contatos</h3>
+          <input
+            type="text"
+            placeholder="Search"
+            name="search"
+            value={this.state.search}
+            onChange={this.handleOnChange}
+          />
+        </div>
+        {filteredContacts &&
+          filteredContacts.map(contact => {
             return (
               <ul key={contact.id}>
+                <li>
+                  ID: <span>{contact.id}</span>
+                </li>
                 <li>
                   Nome: <span>{contact.name}</span>
                 </li>

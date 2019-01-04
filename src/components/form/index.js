@@ -6,10 +6,7 @@ import ContentList from "../contentList";
 class Form extends Component {
   state = {
     data: { name: "", email: "", phone: "" },
-    contacts: [
-      { id: 1, name: "Teste", email: "c@c.com", phone: "32988993322" },
-      { id: 2, name: "Teste 2", email: "c@c.com", phone: "32988002233" }
-    ],
+    contacts: [],
     length: 0
   };
 
@@ -27,7 +24,7 @@ class Form extends Component {
         {
           contacts: [
             ...this.state.contacts,
-            { id: Math.random(), ...this.state.data }
+            { id: Math.floor(Math.random() * 1000 + 1), ...this.state.data }
           ],
           length: this.state.contacts.length + 1
         },
@@ -38,14 +35,20 @@ class Form extends Component {
   handleOnRemove = id => {
     let aux = this.state.contacts.filter(contact => contact.id !== id);
 
-    this.setState({ contacts: aux });
+    this.setState({ contacts: aux, length: this.state.contacts.length - 1 });
   };
+
+  componentDidMount() {
+    this.setState({ length: this.state.contacts.length });
+  }
 
   render() {
     return (
       <StyledForm>
         <form onSubmit={this.handleAdd}>
-          <h3>Dados</h3>
+          <h3>
+            Dados - QTD: <small>{this.state.length}</small>
+          </h3>
           <input
             type="text"
             placeholder="Nome"
@@ -53,7 +56,6 @@ class Form extends Component {
             value={this.state.data.name}
             onChange={this.handleOnChange}
           />
-
           <input
             type="text"
             placeholder="E-mail"
@@ -61,7 +63,6 @@ class Form extends Component {
             value={this.state.data.email}
             onChange={this.handleOnChange}
           />
-
           <input
             type="text"
             placeholder="Tel"
@@ -69,13 +70,12 @@ class Form extends Component {
             value={this.state.data.phone}
             onChange={this.handleOnChange}
           />
-
           <button type="submit">Adicionar</button>
         </form>
 
         <ContentList
-          contacts={this.state.contacts}
           handleOnRemove={this.handleOnRemove}
+          contacts={this.state.contacts}
         />
       </StyledForm>
     );

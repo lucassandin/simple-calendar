@@ -2,12 +2,13 @@ import styled from "styled-components";
 import store from "../../store/store";
 
 export const StyledForm = styled.div`
+  color: ${() => (store.getState().app.color ? "#353535" : "#353535")};
   display: flex;
   flex-direction: row;
+  justify-content: center;
   padding: 20px;
   box-shadow: 0 0 3px #a1a1a1;
-  color: #353535;
-  color: ${() => (store.getState().app.color ? "#353535" : "#353535")};
+  width: 100%;
 
   h3 {
     padding: 5px 0;
@@ -17,11 +18,14 @@ export const StyledForm = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
+    width: 100%;
 
-  input {
-    padding: 5px;
-    margin: 10px 0;
+    input {
+      display: flex;
+      width: 100%;
+      padding: 5px;
+      margin: 10px 0;
+    }
   }
 
   button {
@@ -31,5 +35,9 @@ export const StyledForm = styled.div`
     margin: 5px 0;
     color: #fff;
     font-size: 13px;
+
+    &:active {
+      background: #9a96ff;
+    }
   }
 `;
