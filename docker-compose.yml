@@ -1,0 +1,20 @@
+# determina a versao da aplicacao
+version: '3.4'
+
+services:
+  # nome do diretorio atual
+  simple_schedule:
+    container_name: 'agenda'
+    # imagem utilizada
+    image: agenda:1.0
+    # executa o build na pasta raiz
+    # onde consta o dockerfile no mesmo nível
+    build: .
+    # cria variaveis de ambientes
+    environment:
+      NODE_ENV: production
+    # expoe as portas do container e dos hosts
+    # respectivamente
+    ports:
+      - 3000:3000
+    
